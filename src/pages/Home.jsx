@@ -188,6 +188,65 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CUROS Resume Featured Section */}
+      <section className="section bg-dark-100 relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-30"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <AnimatedSection className="order-2 lg:order-1 card p-8 gradient-border shadow-2xl shadow-primary/5">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 rotate-3 hover:rotate-0 transition-transform duration-300">
+                  <Zap className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="font-display font-semibold text-2xl text-white mb-3">
+                  AI-Powered Results
+                </h3>
+                <p className="text-gray-400 mb-6 italic">
+                  "Build your dream career with professional, data-backed resume templates designed for modern recruitment."
+                </p>
+                <a 
+                  href="https://curos-resume-2lq3w00wb-curos.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-flex items-center gap-2 w-full justify-center"
+                >
+                  Create Your Resume Now
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2} className="order-1 lg:order-2">
+              <span className="text-primary text-sm font-medium uppercase tracking-wider mb-3 block glow-primary w-fit px-2 py-0.5 rounded-lg bg-primary/10">
+                Featured Product
+              </span>
+              <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6">
+                CUROS <span className="gradient-text">Resume</span>
+              </h2>
+              <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+                Elevate your professional profile with our AI-powered resume builder. 
+                Designed for speed and impact, CUROS Resume helps you land your dream job 
+                with professionally crafted templates that beat the ATS systems.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-gray-300">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                  <span>Modern AI-Optimized Templates</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                  <span>ATS-Friendly PDF Downloads</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                  <span>Instant Professional Formatting</span>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* EdTech Coming Soon */}
       <section className="section bg-dark relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
@@ -198,7 +257,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
-              <span className="text-primary text-sm font-medium uppercase tracking-wider mb-3 block">
+              <span className="text-primary text-sm font-medium uppercase tracking-wider mb-3 block glow-primary w-fit px-2 py-0.5 rounded-lg bg-primary/5">
                 Coming Soon
               </span>
               <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6">

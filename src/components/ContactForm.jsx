@@ -11,6 +11,8 @@ export default function ContactForm() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const charLimit = 1000
 
   const handleChange = (e) => {
     setFormData({
@@ -19,21 +21,46 @@ export default function ContactForm() {
     })
   }
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setError('')
+
+    if (!validateEmail(formData.email)) {
+      setError('Please enter a valid email address.')
+      return
+    }
+
+    if (formData.message.length > charLimit) {
+      setError(`Message must be less than ${charLimit} characters.`)
+      return
+    }
+
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: '', email: '', message: '' })
-    }, 3000)
+    try {
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+      
+      // Reset after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({ name: '', email: '', message: '' })
+      }, 5000)
+    } catch (err) {
+      setIsSubmitting(false)
+      setError('Something went wrong. Please try again later.')
+    }
   }
 
   return (
@@ -55,12 +82,24 @@ export default function ContactForm() {
           <h3 className="font-display font-semibold text-xl text-white mb-2">
             Message Sent Successfully!
           </h3>
-          <p className="text-gray-400">
-            We'll get back to you soon.
+          <p className="text-gray-400 mb-6">
+            Thank you for reaching out. We'll get back to you within 24-48 hours.
           </p>
+          <Button variant="secondary" onClick={() => setIsSubmitted(false)}>
+            Send Another Message
+          </Button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="bg-red-500/10 border border-red-500/20 text-red-500 px-4 py-3 rounded-xl text-sm"
+            >
+              {error}
+            </motion.div>
+          )}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
               Full Name
@@ -94,9 +133,14 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-              Message
-            </label>
+            <div className="flex justify-between mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-300">
+                Message
+              </label>
+              <span className={`text-xs ${formData.message.length > charLimit ? 'text-red-500' : 'text-gray-500'}`}>
+                {formData.message.length} / {charLimit}
+              </span>
+            </div>
             <textarea
               id="message"
               name="message"
@@ -104,6 +148,7 @@ export default function ContactForm() {
               onChange={handleChange}
               required
               rows={5}
+              maxLength={charLimit}
               className="w-full bg-dark-200 border border-dark-300 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
               placeholder="Tell us about your project..."
             />

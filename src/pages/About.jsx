@@ -14,17 +14,17 @@ const focusAreas = [
   {
     icon: TrendingUp,
     title: 'Fintech',
-    description: 'Revolutionizing financial services through innovative digital solutions.',
+    description: 'Engineering secure, scalable financial architectures that power the next generation of global commerce.',
   },
   {
     icon: Lightbulb,
     title: 'Education',
-    description: 'Transforming learning experiences with technology-driven platforms.',
+    description: 'Democratizing quality learning through AI-enhanced EdTech platforms designed for impact.',
   },
   {
     icon: Sparkles,
-    title: 'Artificial Intelligence',
-    description: 'Leveraging AI to create intelligent and adaptive solutions.',
+    title: 'Product Ecosystem',
+    description: 'Building world-class AI tools and SaaS products that solve real-world professional challenges.',
   },
 ]
 
@@ -32,12 +32,12 @@ const values = [
   {
     icon: Target,
     title: 'Mission',
-    description: 'To empower businesses with cutting-edge digital solutions that drive growth, efficiency, and innovation across all sectors.',
+    description: 'To deliver high-impact digital solutions that accelerate business growth and foster innovation in a tech-driven landscape.',
   },
   {
     icon: Eye,
     title: 'Vision',
-    description: 'To be a global leader in digital transformation, creating meaningful impact through technology, education, and innovation.',
+    description: 'To be the global catalyst for digital transformation, setting new standards in software excellence and creative innovation.',
   },
 ]
 
@@ -46,7 +46,7 @@ export default function About() {
     <div className="bg-dark">
       <PageHeader 
         title="About Us" 
-        subtitle="Pioneering digital innovation across multiple sectors"
+        subtitle="Architecting world-class digital ecosystems through technology, education, and AI."
         breadcrumb={[{ name: 'About' }]}
       />
 
@@ -56,28 +56,27 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimatedSection>
               <span className="text-primary text-sm font-medium uppercase tracking-wider mb-3 block">
-                Who We Are
+                The CUROS Essence
               </span>
               <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6">
-                Transforming Ideas Into{' '}
-                <span className="gradient-text">Digital Reality</span>
+                Architecting the Future of{' '}
+                <span className="gradient-text">Digital Innovation</span>
               </h2>
               <div className="space-y-4 text-gray-400 text-lg leading-relaxed">
                 <p>
-                  CUROS LLP is a multi-sector digital innovation company dedicated to building 
-                  powerful digital businesses through technology, education, and innovation.
+                  CUROS LLP is more than a digital agency; we are a **strategic innovation powerhouse** 
+                  dedicated to building powerful digital ecosystems through technology, education, and AI.
                 </p>
                 <p>
-                  We specialize in delivering comprehensive digital solutions that help businesses 
-                  navigate the ever-evolving technological landscape. From web development to 
-                  mobile applications, from content production to digital marketing, we offer 
-                  end-to-end services designed to elevate your digital presence.
+                  We don't just build software; we architect experiences that redefine how businesses 
+                  interface with technology. From proprietary AI products like **CUROS Resume** 
+                  to bespoke enterprise solutions, we deliver a standard of excellence that 
+                  transforms market leaders.
                 </p>
                 <p>
-                  Our team of experts combines technical prowess with creative thinking to 
-                  deliver solutions that not only meet but exceed expectations. We believe in 
-                  building long-term partnerships with our clients through transparency, 
-                  reliability, and exceptional results.
+                  Our DNA is rooted in the belief that true innovation happens at the intersection of 
+                  technical mastery and creative audacity. We partner with visionaries to turn 
+                  disruptive ideas into market-ready realities.
                 </p>
               </div>
             </AnimatedSection>
@@ -189,11 +188,11 @@ export default function About() {
                       CEO, CUROS LLP
                     </p>
                     <p className="text-gray-400 leading-relaxed">
-                      A visionary leader with deep expertise in fintech, education, and artificial 
-                      intelligence. Abhishek founded CUROS with a mission to transform businesses 
-                      through innovative digital solutions. His strategic vision and commitment to 
-                      excellence have guided CUROS to become a trusted partner for businesses seeking 
-                      digital transformation.
+                      A visionary "Product Architect" and tech strategist, Abhishek Kushwaha 
+                      founded CUROS with a singular mission: to democratize innovation through 
+                      intelligent technology. With deep roots in Fintech and AI, he leads from the front—combining 
+                      strategic foresight with a passion for building products that amplify 
+                      human potential.
                     </p>
                     
                     <div className="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">

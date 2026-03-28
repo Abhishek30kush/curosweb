@@ -162,9 +162,10 @@ curosweb/
 - **Focus**: Fintech, Education, AI
 
 ### Portfolio Projects
-1. **curosinvesting.com** - Investment platform
-2. **CUROS Pathshala** - EdTech platform (Coming Soon)
-3. **Client Projects** - Various client work placeholders
+1. **CUROS Resume** - AI-powered resume builder
+2. **curosinvesting.com** - Investment platform
+3. **CUROS Pathshala** - EdTech platform (Coming Soon)
+4. **Client Projects** - Various client work placeholders
 
 ### Contact Details
 - **Email**: curosenterprisesllp@gmail.com

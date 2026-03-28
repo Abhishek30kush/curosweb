@@ -6,6 +6,12 @@ import AnimatedSection from '../components/AnimatedSection'
 
 const projects = [
   {
+    title: 'CUROS Resume',
+    description: 'A premium AI-powered resume builder helping professionals create stunning, ATS-friendly resumes in minutes with modern, customizable templates.',
+    category: 'Product / Web App',
+    link: 'https://curos-resume-2lq3w00wb-curos.vercel.app/',
+  },
+  {
     title: 'CUROS Investing',
     description: 'A comprehensive fintech investment platform enabling users to manage portfolios, track investments, and access market insights with real-time data visualization.',
     category: 'Fintech',
