@@ -7,6 +7,7 @@ const quickLinks = [
   { name: 'About', path: '/about' },
   { name: 'Portfolio', path: '/portfolio' },
   { name: 'Contact', path: '/contact' },
+  { name: 'Study Planner Privacy', path: '/study-planner-privacy-policy' },
 ]
 
 const services = [
