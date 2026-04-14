@@ -8,10 +8,12 @@ import About from './pages/About'
 import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import StudyPlannerPrivacyPolicy from './pages/StudyPlannerPrivacyPolicy'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <div className="min-h-screen bg-dark flex flex-col">
+      <ScrollToTop />
       <Navbar />
       <main className="flex-1">
         <Routes>
