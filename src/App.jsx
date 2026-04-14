@@ -6,6 +6,7 @@ import Services from './pages/Services'
 import About from './pages/About'
 import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
+import StudyPlannerPrivacyPolicy from './pages/StudyPlannerPrivacyPolicy'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/study-planner-privacy-policy" element={<StudyPlannerPrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />
