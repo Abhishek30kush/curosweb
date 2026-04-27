@@ -8,6 +8,8 @@ const quickLinks = [
   { name: 'Portfolio', path: '/portfolio' },
   { name: 'Contact', path: '/contact' },
   { name: 'Study Planner Privacy', path: '/study-planner-privacy-policy' },
+  { name: 'S.S. Point Privacy Policy', path: '/sspoint-privacy-policy' },
+  { name: 'Vidyasparsh Privacy Policy', path: '/vidyasparsh-privacy-policy' },
 ]
 
 const services = [

@@ -8,6 +8,8 @@ import About from './pages/About'
 import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import StudyPlannerPrivacyPolicy from './pages/StudyPlannerPrivacyPolicy'
+import SSPointPrivacyPolicy from './pages/SSPointPrivacyPolicy'
+import VidyasparshPrivacyPolicy from './pages/VidyasparshPrivacyPolicy'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/study-planner-privacy-policy" element={<StudyPlannerPrivacyPolicy />} />
+          <Route path="/sspoint-privacy-policy" element={<SSPointPrivacyPolicy />} />
+          <Route path="/vidyasparsh-privacy-policy" element={<VidyasparshPrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />
