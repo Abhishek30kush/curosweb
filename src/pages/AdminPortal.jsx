@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { List, MessageSquare, LogOut, CheckCircle, Clock, AlertCircle, RefreshCw, BarChart2, ShieldAlert } from 'lucide-react'
 import { auth, db } from '../firebase'
-import { collection, query, orderBy, onSnapshot, doc, updateDoc } from 'firebase/firestore'
+import { collection, query, onSnapshot, doc, updateDoc } from 'firebase/firestore'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import PageHeader from '../components/PageHeader'
 import PortalChat from '../components/PortalChat'
@@ -12,7 +12,7 @@ export default function AdminPortal() {
   const [currentUser, setCurrentUser] = useState(null)
   const [requests, setRequests] = useState([])
   const [loading, setLoading] = useState(true)
-  const [selectedRequest, setSelectedRequest] = useState(null)
+  const [selectedRequestId, setSelectedRequestId] = useState(null)
   
   // Dashboard Metrics
   const [metrics, setMetrics] = useState({
@@ -40,8 +40,7 @@ export default function AdminPortal() {
   useEffect(() => {
     setLoading(true)
     const q = query(
-      collection(db, 'requests'),
-      orderBy('createdAt', 'desc')
+      collection(db, 'requests')
     )
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -50,13 +49,20 @@ export default function AdminPortal() {
       let activeCount = 0
       let completedCount = 0
 
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        reqList.push({ id: doc.id, ...data })
+      snapshot.forEach((docSnap) => {
+        const data = docSnap.data()
+        reqList.push({ id: docSnap.id, ...data })
         
         if (data.status === 'Pending') pendingCount++
         else if (data.status === 'Completed') completedCount++
         else activeCount++
+      })
+
+      // Sort newest first (client-side to avoid composite index requirement)
+      reqList.sort((a, b) => {
+        const timeA = a.createdAt?.seconds || 0
+        const timeB = b.createdAt?.seconds || 0
+        return timeB - timeA
       })
 
       setRequests(reqList)
@@ -75,16 +81,6 @@ export default function AdminPortal() {
 
     return () => unsubscribe()
   }, [])
-
-  // Sync selectedRequest with fresh updates from requests list securely
-  useEffect(() => {
-    if (selectedRequest) {
-      const updated = requests.find(r => r.id === selectedRequest.id)
-      if (updated && JSON.stringify(updated) !== JSON.stringify(selectedRequest)) {
-        setSelectedRequest(updated)
-      }
-    }
-  }, [requests, selectedRequest])
 
   const handleSignOut = async () => {
     try {
@@ -192,9 +188,9 @@ export default function AdminPortal() {
               requests.map((req) => (
                 <div
                   key={req.id}
-                  onClick={() => setSelectedRequest(req)}
+                  onClick={() => setSelectedRequestId(req.id)}
                   className={`card p-6 cursor-pointer border hover:border-primary/40 hover:shadow-lg transition-all duration-300 ${
-                    selectedRequest?.id === req.id 
+                    selectedRequestId === req.id 
                       ? 'border-primary bg-primary/5 shadow-md shadow-primary/5' 
                       : 'border-dark-300'
                   }`}
@@ -256,10 +252,10 @@ export default function AdminPortal() {
 
           {/* Real-time Central Admin Chat Feed */}
           <div className="lg:col-span-5 lg:sticky lg:top-32">
-            {selectedRequest ? (
+            {selectedRequestId && requests.find(r => r.id === selectedRequestId) ? (
               <PortalChat
-                requestId={selectedRequest.id}
-                requestTitle={`CONVERSATION WITH: ${String(selectedRequest.clientName || 'Client').toUpperCase()}`}
+                requestId={selectedRequestId}
+                requestTitle={`CONVERSATION WITH: ${String(requests.find(r => r.id === selectedRequestId)?.clientName || 'Client').toUpperCase()}`}
                 userRole="admin"
               />
             ) : (
