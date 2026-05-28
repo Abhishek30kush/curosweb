@@ -7,6 +7,9 @@ import Services from './pages/Services'
 import About from './pages/About'
 import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
+import PortalLogin from './pages/PortalLogin'
+import ClientPortal from './pages/ClientPortal'
+import AdminPortal from './pages/AdminPortal'
 import StudyPlannerPrivacyPolicy from './pages/StudyPlannerPrivacyPolicy'
 import SSPointPrivacyPolicy from './pages/SSPointPrivacyPolicy'
 import VidyasparshPrivacyPolicy from './pages/VidyasparshPrivacyPolicy'
@@ -24,6 +27,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/portal/login" element={<PortalLogin />} />
+          <Route path="/portal/client" element={<ClientPortal />} />
+          <Route path="/portal/admin" element={<AdminPortal />} />
           <Route path="/study-planner-privacy-policy" element={<StudyPlannerPrivacyPolicy />} />
           <Route path="/sspoint-privacy-policy" element={<SSPointPrivacyPolicy />} />
           <Route path="/vidyasparsh-privacy-policy" element={<VidyasparshPrivacyPolicy />} />

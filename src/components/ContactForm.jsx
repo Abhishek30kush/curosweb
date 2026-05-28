@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle } from 'lucide-react'
 import Button from './Button'
+import { db } from '../firebase'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -46,20 +48,23 @@ export default function ContactForm() {
     setIsSubmitting(true)
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      // Save data directly to Firebase Firestore contacts collection
+      await addDoc(collection(db, 'contacts'), {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: formData.message.trim(),
+        createdAt: serverTimestamp()
+      })
       
       setIsSubmitting(false)
       setIsSubmitted(true)
       
-      // Reset after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false)
-        setFormData({ name: '', email: '', message: '' })
-      }, 5000)
+      // Reset form after submission
+      setFormData({ name: '', email: '', message: '' })
     } catch (err) {
+      console.error('Firebase save error:', err)
       setIsSubmitting(false)
-      setError('Something went wrong. Please try again later.')
+      setError('Something went wrong while sending your message. Please try again later.')
     }
   }
 
