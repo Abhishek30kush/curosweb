@@ -8,19 +8,18 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#8B5CF6', // Cyber Violet
-          light: '#A78BFA',
-          dark: '#6D28D9',
+          DEFAULT: '#0066FF',
+          light: '#3385FF',
+          dark: '#0052CC',
         },
-        secondary: '#07021a', // Ultra-Deep Violet Void
-        accent: '#00F5FF',    // Laser Cyan
-        highlight: '#FF007F', // Neon Rose / Magenta
+        secondary: '#001A33',
+        accent: '#00D4FF',
         dark: {
-          DEFAULT: '#030014', // Obsidian Space Background
-          50: '#06031b',
-          100: '#0a052c',
-          200: '#120b3e',
-          300: '#1d1259',
+          DEFAULT: '#000000',
+          50: '#0A0A0A',
+          100: '#0D0D0D',
+          200: '#1A1A1A',
+          300: '#262626',
         }
       },
       fontFamily: {
@@ -31,12 +30,11 @@ export default {
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'gradient': 'gradient 8s ease infinite',
-        'spin-slow': 'spin 12s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-15px)' },
+          '50%': { transform: 'translateY(-20px)' },
         },
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
@@ -45,8 +43,7 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #030014 0%, #07021a 50%, #030014 100%)',
-        'cosmic-gradient': 'linear-gradient(135deg, #6D28D9 0%, #FF007F 50%, #00F5FF 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #000000 0%, #001A33 50%, #000000 100%)',
       }
     },
   },

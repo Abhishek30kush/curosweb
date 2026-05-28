@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #030014;
+  background-color: #000000;
   color: #ffffff;
   overflow-x: hidden;
 }
@@ -25,29 +25,29 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #030014;
+  background: #0D0D0D;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8B5CF6;
+  background: #0066FF;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF007F;
+  background: #3385FF;
 }
 
 /* Glassmorphism */
 .glass {
-  background: rgba(3, 0, 20, 0.75);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #8B5CF6 0%, #FF007F 50%, #00F5FF 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -55,16 +55,16 @@ body {
 
 /* Button styles */
 .btn-primary {
-  @apply bg-primary hover:bg-primary-light text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:scale-105;
+  @apply bg-primary hover:bg-primary-light text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-105;
 }
 
 .btn-secondary {
-  @apply border border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/10;
+  @apply border border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300;
 }
 
 /* Card styles */
 .card {
-  @apply bg-dark-50/50 backdrop-blur-md rounded-2xl border border-dark-200/60 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5;
+  @apply bg-dark-200/50 backdrop-blur-sm rounded-2xl border border-dark-300 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10;
 }
 
 /* Section padding */
