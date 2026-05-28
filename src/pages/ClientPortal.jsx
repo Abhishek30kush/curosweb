@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, List, MessageSquare, LogOut, CheckCircle, Clock, AlertCircle, Sparkles, Send } from 'lucide-react'
 import { auth, db } from '../firebase'
-import { collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp } from 'firebase/firestore'
+import { collection, addDoc, query, where, onSnapshot, serverTimestamp } from 'firebase/firestore'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import PageHeader from '../components/PageHeader'
 import Button from '../components/Button'
@@ -49,14 +49,19 @@ export default function ClientPortal() {
     setLoading(true)
     const q = query(
       collection(db, 'requests'),
-      where('clientId', '==', currentUser.uid),
-      orderBy('createdAt', 'desc')
+      where('clientId', '==', currentUser.uid)
     )
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const reqList = []
       snapshot.forEach((doc) => {
         reqList.push({ id: doc.id, ...doc.data() })
+      })
+      // Sort newest first (client-side to avoid composite index requirement)
+      reqList.sort((a, b) => {
+        const timeA = a.createdAt?.seconds || 0
+        const timeB = b.createdAt?.seconds || 0
+        return timeB - timeA
       })
       setRequests(reqList)
       setLoading(false)
