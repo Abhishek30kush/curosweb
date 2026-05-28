@@ -144,7 +144,7 @@ export default function PortalLogin() {
             layout
             className="card p-8 border-primary/20 relative"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
             
             <h3 className="font-display font-bold text-2xl text-white mb-2 text-center">
               {activeTab === 'login' ? 'Welcome Back' : 'Join CUROS Network'}

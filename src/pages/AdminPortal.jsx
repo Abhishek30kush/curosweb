@@ -124,7 +124,7 @@ export default function AdminPortal() {
       <section className="section py-8">
         {/* Profile and Logout Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-dark-100 border border-dark-300 rounded-2xl p-6 mb-8 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-accent/10 rounded-xl border border-accent/20 flex items-center justify-center font-display font-semibold text-lg text-accent uppercase">
               A

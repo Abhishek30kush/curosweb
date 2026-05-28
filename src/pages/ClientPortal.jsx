@@ -151,7 +151,7 @@ export default function ClientPortal() {
       <section className="section py-8">
         {/* Profile bar and Actions */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-dark-100 border border-dark-300 rounded-2xl p-6 mb-8 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center font-display font-semibold text-lg text-primary uppercase">
               {currentUser?.displayName?.[0] || 'C'}
@@ -204,7 +204,7 @@ export default function ClientPortal() {
                   exit={{ opacity: 0, y: -20 }}
                   className="card p-8 border-primary/25 relative"
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
                   
                   <h3 className="font-display font-bold text-xl text-white mb-2">Submit Project Requirements</h3>
                   <p className="text-gray-400 text-sm mb-6">Describe what you need us to build. An engineer will review it instantly.</p>
