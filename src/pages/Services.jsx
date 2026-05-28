@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { Globe, Smartphone, Video, TrendingUp, GraduationCap, Code, Layout, Database, Server, CheckCircle, PenTool, Megaphone, Target, Search, BarChart3, Users, GraduationCap as Edu, BookOpen, Video as VideoIcon } from 'lucide-react'
+import { Globe, Smartphone, Video, TrendingUp, GraduationCap, CheckCircle } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import AnimatedSection from '../components/AnimatedSection'
 
@@ -254,10 +255,10 @@ export default function Services() {
             <p className="text-gray-400 text-lg mb-8">
               Let's discuss your project requirements and create a tailored solution for your business.
             </p>
-            <a href="/contact" className="btn-primary inline-flex items-center gap-2">
+            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
               Get Free Consultation
               <TrendingUp className="w-4 h-4" />
-            </a>
+            </Link>
           </AnimatedSection>
         </div>
       </section>

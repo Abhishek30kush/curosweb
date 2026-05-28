@@ -9,7 +9,7 @@ const contactInfo = [
     icon: Mail,
     title: 'Email',
     description: 'Send us an email anytime',
-    value: 'curos673@gmail.com',
+    value: 'curosenterprisesllp@gmail.com',
     link: 'mailto:curosenterprisesllp@gmail.com',
   },
   {

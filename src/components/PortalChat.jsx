@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
 import { Send, User, MessageSquare } from 'lucide-react'
 import { db, auth } from '../firebase'
 import { collection, addDoc, query, where, onSnapshot, serverTimestamp } from 'firebase/firestore'

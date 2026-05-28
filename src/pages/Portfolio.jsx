@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, ArrowRight, TrendingUp } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import ProjectCard from '../components/ProjectCard'
 import AnimatedSection from '../components/AnimatedSection'
@@ -261,10 +262,10 @@ export default function Portfolio() {
             <p className="text-gray-400 text-lg mb-8">
               Let's discuss your project requirements and create something amazing together.
             </p>
-            <a href="/contact" className="btn-primary inline-flex items-center gap-2">
+            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
               Start Your Project
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </AnimatedSection>
         </div>
       </section>

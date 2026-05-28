@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Target, Eye, Lightbulb, Award, Users, Globe, TrendingUp, CheckCircle, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import AnimatedSection from '../components/AnimatedSection'
 
@@ -64,8 +65,8 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-gray-400 text-lg leading-relaxed">
                 <p>
-                  CUROS LLP is more than a digital agency; we are a **strategic innovation powerhouse** 
-                  dedicated to building powerful digital ecosystems. We work **directly with our clients**, 
+                  CUROS LLP is more than a digital agency; we are a <strong>strategic innovation powerhouse</strong> 
+                  dedicated to building powerful digital ecosystems. We work <strong>directly with our clients</strong>, 
                   eliminating third-party agencies, middle-men, and translation layers.
                 </p>
                 <p>
@@ -74,7 +75,7 @@ export default function About() {
                   with technical architects, and highly cost-optimized project execution.
                 </p>
                 <p>
-                  From building world-class SaaS tools like **CUROS Resume** to executing bespoke enterprise Web 
+                  From building world-class SaaS tools like <strong>CUROS Resume</strong> to executing bespoke enterprise Web 
                   & App developments, we partner with visionaries to turn disruptive ideas into market-ready realities.
                 </p>
               </div>
@@ -259,10 +260,10 @@ export default function About() {
             <p className="text-gray-400 text-lg mb-8">
               Let's discuss how CUROS can help transform your business with innovative digital solutions.
             </p>
-            <a href="/contact" className="btn-primary inline-flex items-center gap-2">
+            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
               Get In Touch
               <TrendingUp className="w-4 h-4" />
-            </a>
+            </Link>
           </AnimatedSection>
         </div>
       </section>
