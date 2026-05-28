@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Globe, Smartphone, Video, TrendingUp, GraduationCap, CheckCircle, Zap, Clock, Award, Users } from 'lucide-react'
+import { ArrowRight, Globe, Smartphone, Video, TrendingUp, GraduationCap, CheckCircle, Zap, Clock, Award, Users, ShieldCheck, XCircle, Code2, HeartHandshake } from 'lucide-react'
 import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
 import AnimatedSection from '../components/AnimatedSection'
@@ -184,6 +184,75 @@ export default function Home() {
                 </p>
               </AnimatedSection>
             ))}
+          </div>
+        </div>
+      </section>
+      {/* The Direct-to-Client Advantage Section */}
+      <section className="section bg-dark relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,102,255,0.08),transparent_50%)]"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <SectionTitle
+            subtitle="The Direct Advantage"
+            title="Why Direct-to-Client Collaboration Wins"
+            description="We build directly with our clients. No outsourcing, no layers of miscommunication, and absolutely zero agency markups."
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+            {/* Standard Agency Bloat */}
+            <AnimatedSection className="card p-8 bg-dark-200/30 border-red-500/10 hover:border-red-500/30 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center">
+                  <XCircle className="w-5 h-5 text-red-500" />
+                </div>
+                <h3 className="font-display font-bold text-xl text-white">Traditional Bloated Agencies</h3>
+              </div>
+              
+              <div className="space-y-4">
+                {[
+                  { title: "Outsourced Templates", desc: "Using cheap, pre-built templates or third-party freelancers, leaving you with brittle, unoptimized code." },
+                  { title: "Project Manager Layers", desc: "Your direct requests are translated across sales reps and project managers, leading to costly communication gaps." },
+                  { title: "Double-Marked Pricing", desc: "Paying premium agency markup fees to cover administrative bloat rather than active coding hours." },
+                  { title: "Opaque Timelines", desc: "Limited insight into the codebase, milestones, or real progress until it is far too late to iterate." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4 border-b border-dark-300 pb-4 last:border-0 last:pb-0">
+                    <div className="flex-shrink-0 w-2 h-2 bg-red-500 rounded-full mt-2"></div>
+                    <div>
+                      <h4 className="font-semibold text-gray-300 text-sm">{item.title}</h4>
+                      <p className="text-gray-500 text-xs mt-1">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+
+            {/* The CUROS Way */}
+            <AnimatedSection delay={0.2} className="card p-8 bg-primary/5 border-primary/20 hover:border-primary/50 transition-all duration-300 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-300"></div>
+              
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center glow-primary">
+                  <ShieldCheck className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-display font-bold text-xl text-white">The CUROS Direct Partnership</h3>
+              </div>
+              
+              <div className="space-y-4">
+                {[
+                  { title: "100% Bespoke Engineering", desc: "Clean-sheet codebases tailored precisely for your scale, security protocols, and operational goals." },
+                  { title: "Direct Architect Interface", desc: "Speak directly with lead developers and CEO Abhishek Kushwaha. Instant updates, zero translations." },
+                  { title: "Transparent Pricing Model", desc: "Every single rupee goes directly into top-tier design and engineering. Maximize your return on investment." },
+                  { title: "Agile Daily Commits & Staging", desc: "Watch your project build live. Daily deployments, transparent Git commits, and complete staging environments." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4 border-b border-primary/10 pb-4 last:border-0 last:pb-0">
+                    <div className="flex-shrink-0 w-2 h-2 bg-primary rounded-full mt-2 glow-primary"></div>
+                    <div>
+                      <h4 className="font-semibold text-white text-sm">{item.title}</h4>
+                      <p className="text-gray-400 text-xs mt-1">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

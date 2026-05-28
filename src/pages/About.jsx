@@ -65,18 +65,17 @@ export default function About() {
               <div className="space-y-4 text-gray-400 text-lg leading-relaxed">
                 <p>
                   CUROS LLP is more than a digital agency; we are a **strategic innovation powerhouse** 
-                  dedicated to building powerful digital ecosystems through technology, education, and AI.
+                  dedicated to building powerful digital ecosystems. We work **directly with our clients**, 
+                  eliminating third-party agencies, middle-men, and translation layers.
                 </p>
                 <p>
-                  We don't just build software; we architect experiences that redefine how businesses 
-                  interface with technology. From proprietary AI products like **CUROS Resume** 
-                  to bespoke enterprise solutions, we deliver a standard of excellence that 
-                  transforms market leaders.
+                  We don't just build software; we architect customized experiences. By working directly with 
+                  our core engineering team, our clients experience unparalleled transparency, direct communication 
+                  with technical architects, and highly cost-optimized project execution.
                 </p>
                 <p>
-                  Our DNA is rooted in the belief that true innovation happens at the intersection of 
-                  technical mastery and creative audacity. We partner with visionaries to turn 
-                  disruptive ideas into market-ready realities.
+                  From building world-class SaaS tools like **CUROS Resume** to executing bespoke enterprise Web 
+                  & App developments, we partner with visionaries to turn disruptive ideas into market-ready realities.
                 </p>
               </div>
             </AnimatedSection>

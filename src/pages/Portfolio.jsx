@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, ArrowRight, TrendingUp } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import ProjectCard from '../components/ProjectCard'
@@ -8,44 +9,58 @@ const projects = [
   {
     title: 'CUROS Resume',
     description: 'A premium AI-powered resume builder helping professionals create stunning, ATS-friendly resumes in minutes with modern, customizable templates.',
-    category: 'Product / Web App',
+    category: 'Products',
+    tags: ['React.js', 'Node.js', 'Firebase', 'Tailwind CSS', 'AI Templates'],
     link: 'https://curos-resume-2lq3w00wb-curos.vercel.app/',
+    metric: '100% ATS Friendly'
   },
   {
     title: 'CUROS Investing',
     description: 'A comprehensive fintech investment platform enabling users to manage portfolios, track investments, and access market insights with real-time data visualization.',
-    category: 'Fintech',
+    category: 'Products',
+    tags: ['React.js', 'D3.js Visualization', 'Tailwind', 'Real-time APIs', 'Fintech Security'],
     link: 'https://curosinvesting.com',
+    metric: 'Real-time Sync'
   },
   {
     title: 'CUROS Pathshala',
     description: 'Our upcoming EdTech platform designed to revolutionize learning through interactive courses, live classes, and personalized learning paths.',
-    category: 'EdTech',
+    category: 'Products',
+    tags: ['EdTech Platform', 'Live Coding SDK', 'Vite', 'React.js', 'MongoDB'],
     comingSoon: true,
+    metric: 'Launch Phase Q3'
   },
   {
     title: 'E-Commerce Platform',
     description: 'A full-featured online store with advanced product management, secure payment integration, and seamless user experience.',
-    category: 'Web Development',
+    category: 'Software',
+    tags: ['React.js', 'Stripe Payments', 'Tailwind', 'REST APIs', 'Node.js Backend'],
     comingSoon: false,
+    metric: '35% Checkout Lift'
   },
   {
-    title: 'Healthcare App',
+    title: 'Healthcare Mobile App',
     description: 'Mobile application for patient management, appointment scheduling, and telemedicine features for healthcare providers.',
-    category: 'Mobile App',
+    category: 'Software',
+    tags: ['React Native', 'Firebase Auth', 'Telehealth API', 'Direct Client Dev'],
     comingSoon: false,
+    metric: 'HIPAA Compliant Setup'
   },
   {
     title: 'Corporate Brand Video',
     description: 'Professional video production including scriptwriting, filming, editing, and post-production for a leading corporate client.',
-    category: 'Video Production',
+    category: 'Creative',
+    tags: ['Adobe Premiere', 'After Effects Pro', '4K Color Grading', 'Bespoke Audio Design'],
     comingSoon: false,
+    metric: '2M+ Campaign Views'
   },
   {
     title: 'Digital Marketing Campaign',
     description: 'Comprehensive digital marketing strategy resulting in 300% increase in leads and 150% ROI for a B2B client.',
-    category: 'Digital Marketing',
+    category: 'Creative',
+    tags: ['Google Ads SDK', 'Advanced SEO Tactics', 'Facebook Analytics', 'Conversion Rate Optimization'],
     comingSoon: false,
+    metric: '300% Lead Acceleration'
   },
 ]
 
@@ -59,6 +74,12 @@ const clientLogos = [
 ]
 
 export default function Portfolio() {
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter(project => project.category === activeFilter)
+
   return (
     <div className="bg-dark">
       <PageHeader 
@@ -77,25 +98,54 @@ export default function Portfolio() {
             <h2 className="font-display font-bold text-3xl md:text-4xl text-white">
               Featured Projects
             </h2>
-            <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
+            <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto mb-10">
               Explore our diverse portfolio showcasing innovative solutions across fintech, 
               education, healthcare, and more.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={project.title}
-                title={project.title}
-                description={project.description}
-                category={project.category}
-                link={project.link}
-                index={index}
-                comingSoon={project.comingSoon}
-              />
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {[
+              { id: 'all', name: 'All Projects' },
+              { id: 'Products', name: 'CUROS Products' },
+              { id: 'Software', name: 'Bespoke Software' },
+              { id: 'Creative', name: 'Creative & Marketing' },
+            ].map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveFilter(cat.id)}
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  activeFilter === cat.id
+                    ? 'bg-primary text-white shadow-lg shadow-primary/25 scale-105'
+                    : 'bg-dark-200 border border-dark-300 text-gray-400 hover:border-primary/50 hover:text-white'
+                }`}
+              >
+                {cat.name}
+              </button>
             ))}
           </div>
+
+          <motion.div 
+            layout 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  title={project.title}
+                  description={project.description}
+                  category={project.category}
+                  link={project.link}
+                  index={index}
+                  comingSoon={project.comingSoon}
+                  tags={project.tags}
+                  metric={project.metric}
+                />
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 

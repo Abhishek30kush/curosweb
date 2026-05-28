@@ -1,59 +1,119 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, ArrowRight } from 'lucide-react'
+import { ExternalLink, ArrowRight, ShieldCheck } from 'lucide-react'
 
-export default function ProjectCard({ title, description, category, link = '#', index, comingSoon = false }) {
+export default function ProjectCard({ 
+  title, 
+  description, 
+  category, 
+  link = '#', 
+  index, 
+  comingSoon = false,
+  tags = [],
+  metric = ''
+}) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.15, duration: 0.5 }}
-      whileHover={{ y: -5 }}
-      className="card overflow-hidden group"
+      layout
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ y: -6 }}
+      className="card overflow-hidden group flex flex-col justify-between h-full bg-dark-100/40 border-dark-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300"
     >
-      {/* Project Image Placeholder */}
-      <div className="h-48 md:h-56 bg-gradient-to-br from-primary/20 to-accent/20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIGZpbGw9IiMwMDY2RkYiIGZpbGwtb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-50"></div>
-        
-        {/* Floating shapes */}
-        <div className="absolute top-4 right-4 w-20 h-20 bg-primary/30 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-4 left-4 w-16 h-16 bg-accent/30 rounded-full blur-2xl"></div>
-        
-        {comingSoon && (
-          <div className="absolute inset-0 bg-dark/60 flex items-center justify-center">
-            <span className="bg-primary/20 border border-primary/50 text-primary px-4 py-2 rounded-full text-sm font-medium">
-              Coming Soon
-            </span>
+      <div>
+        {/* Developer Mockup / Browser Frame */}
+        <div className="h-44 bg-gradient-to-br from-primary/10 to-accent/5 relative overflow-hidden border-b border-dark-300 flex flex-col justify-between p-3 select-none">
+          {/* Header Bar */}
+          <div className="flex items-center justify-between w-full z-10">
+            {/* Window controls */}
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500/60"></span>
+            </div>
+            
+            {/* Address Bar */}
+            <div className="bg-dark-300/40 border border-dark-300/60 rounded-md text-[10px] text-gray-500 px-3 py-0.5 max-w-[140px] truncate font-mono">
+              curos://work/{title.toLowerCase().replace(/\s+/g, '-')}
+            </div>
+
+            {/* Shield Check Badge */}
+            <div className="flex items-center gap-1 text-[10px] text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-full font-medium">
+              <ShieldCheck className="w-3 h-3" />
+              Direct
+            </div>
           </div>
-        )}
-      </div>
-      
-      {/* Project Content */}
-      <div className="p-6 md:p-8">
-        <span className="text-primary text-xs font-medium uppercase tracking-wider">
-          {category}
-        </span>
-        <h3 className="font-display font-semibold text-xl text-white mt-2 mb-3 group-hover:text-primary transition-colors duration-300">
-          {title}
-        </h3>
-        <p className="text-gray-400 text-sm leading-relaxed mb-6">
-          {description}
-        </p>
+
+          {/* Central Visual / Code Overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,102,255,0.06),transparent_70%)]"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiLz48cGF0aCBkPSJNMCAyMGg0ME0yMCAwdjQwIiBzdHJva2U9IiMwMDY2RkYiIHN0cm9rZS1vcGFjaXR5PSIuMDQiIHN0cm9rZS13aWR0aD0iMSIvPjwvZz48L3N2Zz4=')] opacity-60"></div>
+          
+          {/* Key Metric Highlight */}
+          {metric && (
+            <div className="self-center z-10 mb-2 transform group-hover:scale-105 transition-transform duration-300">
+              <div className="bg-dark-100/80 backdrop-blur-md border border-primary/20 text-accent font-display font-semibold text-xs py-1.5 px-4 rounded-full shadow-lg shadow-black/40 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+                {metric}
+              </div>
+            </div>
+          )}
+
+          {comingSoon && (
+            <div className="absolute inset-0 bg-dark/70 backdrop-blur-[2px] flex items-center justify-center z-20">
+              <span className="bg-primary/20 border border-primary/40 text-primary px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase shadow-lg shadow-black/30">
+                Coming Soon
+              </span>
+            </div>
+          )}
+        </div>
         
+        {/* Project Content */}
+        <div className="p-6 md:p-8">
+          <span className="text-primary text-xs font-semibold uppercase tracking-wider bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-md">
+            {category}
+          </span>
+          
+          <h3 className="font-display font-bold text-xl text-white mt-4 mb-3 group-hover:text-primary transition-colors duration-300">
+            {title}
+          </h3>
+          
+          <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            {description}
+          </p>
+
+          {/* Technology Badges */}
+          {tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-6">
+              {tags.map((tag) => (
+                <span 
+                  key={tag}
+                  className="text-[10px] font-medium bg-dark-200 border border-dark-300 text-gray-400 px-2 py-0.5 rounded"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Action Footer */}
+      <div className="px-6 md:px-8 pb-6 md:pb-8">
         {!comingSoon && (
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all duration-300"
+            className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:text-accent group-hover:gap-3 transition-all duration-300"
           >
-            View Project
+            Launch Project
             <ExternalLink className="w-4 h-4" />
           </a>
         )}
         
         {comingSoon && (
-          <span className="inline-flex items-center gap-2 text-gray-500 font-medium text-sm">
+          <span className="inline-flex items-center gap-2 text-gray-500 font-semibold text-sm">
             Stay Tuned
             <ArrowRight className="w-4 h-4" />
           </span>
