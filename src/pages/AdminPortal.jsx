@@ -67,12 +67,6 @@ export default function AdminPortal() {
         completed: completedCount
       })
       
-      // Update selectedRequest instance if it was updated in Firestore
-      if (selectedRequest) {
-        const updated = reqList.find(r => r.id === selectedRequest.id)
-        if (updated) setSelectedRequest(updated)
-      }
-      
       setLoading(false)
     }, (error) => {
       console.error("Firestore global requests listener error:", error)
@@ -80,7 +74,17 @@ export default function AdminPortal() {
     })
 
     return () => unsubscribe()
-  }, [selectedRequest])
+  }, [])
+
+  // Sync selectedRequest with fresh updates from requests list securely
+  useEffect(() => {
+    if (selectedRequest) {
+      const updated = requests.find(r => r.id === selectedRequest.id)
+      if (updated && JSON.stringify(updated) !== JSON.stringify(selectedRequest)) {
+        setSelectedRequest(updated)
+      }
+    }
+  }, [requests, selectedRequest])
 
   const handleSignOut = async () => {
     try {
@@ -255,7 +259,7 @@ export default function AdminPortal() {
             {selectedRequest ? (
               <PortalChat
                 requestId={selectedRequest.id}
-                requestTitle={`CONVERSATION WITH: ${selectedRequest.clientName.toUpperCase()}`}
+                requestTitle={`CONVERSATION WITH: ${String(selectedRequest.clientName || 'Client').toUpperCase()}`}
                 userRole="admin"
               />
             ) : (
