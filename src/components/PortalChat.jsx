@@ -102,7 +102,7 @@ export default function PortalChat({ requestId, requestTitle, userRole }) {
   }
 
   return (
-    <div className="flex flex-col h-[600px] bg-dark border border-dark-300 rounded-2xl overflow-hidden shadow-2xl relative">
+    <div className="flex flex-col h-[600px] bg-dark border border-dark-300 rounded-2xl overflow-hidden shadow-lg relative">
       {/* Header bar */}
       <div className="bg-dark-100/80 backdrop-blur-md border-b border-dark-300 px-6 py-5 flex items-center gap-4 relative z-10">
         <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-blue/20 rounded-xl flex items-center justify-center border border-primary/20 shadow-glow-sm">
@@ -151,9 +151,9 @@ export default function PortalChat({ requestId, requestTitle, userRole }) {
                     {msg.senderName}
                   </span>
                   
-                  <div className={`max-w-[80%] px-5 py-3.5 rounded-2xl text-sm leading-relaxed shadow-lg ${
+                  <div className={`max-w-[80%] px-5 py-3.5 rounded-2xl text-sm leading-relaxed shadow-sm ${
                     isMe 
-                      ? 'bg-gradient-to-br from-primary to-blue text-white rounded-tr-sm shadow-primary/10' 
+                      ? 'bg-gradient-to-br from-primary to-blue text-white rounded-tr-sm' 
                       : 'bg-dark-200 border border-dark-300 text-gray-200 rounded-tl-sm'
                   } ${msg._isPending ? 'opacity-70' : ''}`}>
                     {msg.text}
@@ -181,7 +181,7 @@ export default function PortalChat({ requestId, requestTitle, userRole }) {
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           placeholder="Type your message here..."
-          className="flex-1 bg-dark-200 border border-dark-300 rounded-xl px-5 py-3.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all shadow-inner"
+          className="flex-1 bg-dark-200 border border-dark-300 rounded-xl px-5 py-3.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all"
         />
         
         <button
