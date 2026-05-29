@@ -9,28 +9,33 @@ export default function ServiceCard({ icon: Icon, title, description, index, lin
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      whileHover={{ y: -5 }}
-      className="card p-6 md:p-8 group cursor-pointer"
+      whileHover={{ y: -6 }}
+      className="card p-6 md:p-8 group cursor-pointer relative overflow-hidden"
     >
-      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-        <Icon className="w-7 h-7 text-primary" />
+      {/* Hover glow background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+      
+      <div className="relative z-10">
+        <div className="w-14 h-14 bg-gradient-to-br from-primary/15 to-blue/10 rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-glow-sm transition-all duration-500 border border-primary/10">
+          <Icon className="w-7 h-7 text-primary group-hover:text-primary-light transition-colors duration-300" />
+        </div>
+        
+        <h3 className="font-display font-semibold text-xl text-white mb-3 group-hover:text-primary-light transition-colors duration-300">
+          {title}
+        </h3>
+        
+        <p className="text-gray-400 text-sm leading-relaxed mb-6">
+          {description}
+        </p>
+        
+        <Link
+          to={link}
+          className="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all duration-300"
+        >
+          Learn More
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+        </Link>
       </div>
-      
-      <h3 className="font-display font-semibold text-xl text-white mb-3 group-hover:text-primary transition-colors duration-300">
-        {title}
-      </h3>
-      
-      <p className="text-gray-400 text-sm leading-relaxed mb-6">
-        {description}
-      </p>
-      
-      <Link
-        to={link}
-        className="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all duration-300"
-      >
-        Learn More
-        <ArrowRight className="w-4 h-4" />
-      </Link>
     </motion.div>
   )
 }

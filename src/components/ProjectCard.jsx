@@ -19,11 +19,11 @@ export default function ProjectCard({
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4 }}
       whileHover={{ y: -6 }}
-      className="card overflow-hidden group flex flex-col justify-between h-full bg-dark-100/40 border-dark-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300"
+      className="card overflow-hidden group flex flex-col justify-between h-full transition-all duration-500"
     >
       <div>
         {/* Developer Mockup / Browser Frame */}
-        <div className="h-44 bg-gradient-to-br from-primary/10 to-accent/5 relative overflow-hidden border-b border-dark-300 flex flex-col justify-between p-3 select-none">
+        <div className="h-44 bg-gradient-to-br from-primary/8 via-blue/5 to-accent/3 relative overflow-hidden border-b border-primary/8 flex flex-col justify-between p-3 select-none">
           {/* Header Bar */}
           <div className="flex items-center justify-between w-full z-10">
             {/* Window controls */}
@@ -34,25 +34,25 @@ export default function ProjectCard({
             </div>
             
             {/* Address Bar */}
-            <div className="bg-dark-300/40 border border-dark-300/60 rounded-md text-[10px] text-gray-500 px-3 py-0.5 max-w-[140px] truncate font-mono">
+            <div className="bg-dark-300/40 border border-dark-400/40 rounded-md text-[10px] text-gray-500 px-3 py-0.5 max-w-[140px] truncate font-mono">
               curos://work/{title.toLowerCase().replace(/\s+/g, '-')}
             </div>
 
             {/* Shield Check Badge */}
-            <div className="flex items-center gap-1 text-[10px] text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-full font-medium">
+            <div className="flex items-center gap-1 text-[10px] text-primary bg-primary/10 border border-primary/15 px-2 py-0.5 rounded-full font-medium">
               <ShieldCheck className="w-3 h-3" />
               Direct
             </div>
           </div>
 
           {/* Central Visual / Code Overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,102,255,0.06),transparent_70%)]"></div>
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiLz48cGF0aCBkPSJNMCAyMGg0ME0yMCAwdjQwIiBzdHJva2U9IiMwMDY2RkYiIHN0cm9rZS1vcGFjaXR5PSIuMDQiIHN0cm9rZS13aWR0aD0iMSIvPjwvZz48L3N2Zz4=')] opacity-60"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.06),transparent_70%)]"></div>
+          <div className="absolute inset-0 dot-pattern opacity-30"></div>
           
           {/* Key Metric Highlight */}
           {metric && (
             <div className="self-center z-10 mb-2 transform group-hover:scale-105 transition-transform duration-300">
-              <div className="bg-dark-100/80 backdrop-blur-md border border-primary/20 text-accent font-display font-semibold text-xs py-1.5 px-4 rounded-full shadow-lg shadow-black/40 flex items-center gap-1.5">
+              <div className="glass-subtle text-accent font-display font-semibold text-xs py-1.5 px-4 rounded-full shadow-lg shadow-black/40 flex items-center gap-1.5 border border-accent/15">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
                 {metric}
               </div>
@@ -70,11 +70,11 @@ export default function ProjectCard({
         
         {/* Project Content */}
         <div className="p-6 md:p-8">
-          <span className="text-primary text-xs font-semibold uppercase tracking-wider bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-md">
+          <span className="text-primary text-xs font-semibold uppercase tracking-wider bg-primary/10 border border-primary/15 px-2.5 py-0.5 rounded-md">
             {category}
           </span>
           
-          <h3 className="font-display font-bold text-xl text-white mt-4 mb-3 group-hover:text-primary transition-colors duration-300">
+          <h3 className="font-display font-bold text-xl text-white mt-4 mb-3 group-hover:text-primary-light transition-colors duration-300">
             {title}
           </h3>
           
@@ -88,7 +88,7 @@ export default function ProjectCard({
               {tags.map((tag) => (
                 <span 
                   key={tag}
-                  className="text-[10px] font-medium bg-dark-200 border border-dark-300 text-gray-400 px-2 py-0.5 rounded"
+                  className="text-[10px] font-medium bg-dark-300/50 border border-dark-400/30 text-gray-400 px-2 py-0.5 rounded backdrop-blur-sm"
                 >
                   {tag}
                 </span>

@@ -11,11 +11,12 @@ export default function SectionTitle({ subtitle, title, description, align = 'ce
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`max-w-3xl mx-auto ${alignment[align]}`}
     >
       {subtitle && (
-        <span className="text-primary text-sm font-medium uppercase tracking-wider mb-3 block">
+        <span className="inline-flex items-center gap-2 glass-pill text-primary text-xs font-semibold uppercase tracking-widest mb-4 px-4 py-1.5 rounded-full">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           {subtitle}
         </span>
       )}
@@ -27,6 +28,14 @@ export default function SectionTitle({ subtitle, title, description, align = 'ce
           {description}
         </p>
       )}
+      {/* Decorative underline */}
+      <div className={`mt-6 flex ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
+        <div className="flex items-center gap-1">
+          <div className="w-8 h-0.5 bg-gradient-to-r from-primary to-primary/0 rounded-full" />
+          <div className="w-2 h-2 rounded-full bg-primary/60" />
+          <div className="w-8 h-0.5 bg-gradient-to-l from-blue to-blue/0 rounded-full" />
+        </div>
+      </div>
     </motion.div>
   )
 }

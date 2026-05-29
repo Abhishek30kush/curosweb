@@ -92,8 +92,8 @@ export default function VidyasparshPrivacyPolicy() {
                 <h2 className="font-display font-bold text-2xl text-white mb-4">9. Contact Us</h2>
                 <p className="leading-relaxed">
                   If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:<br/>
-                  <a href="mailto:curosenterprisesllp@gmail.com" className="text-primary hover:underline">
-                    curosenterprisesllp@gmail.com
+                  <a href="mailto:curos673@gmail.com" className="text-primary hover:underline">
+                    curos673@gmail.com
                   </a>
                 </p>
               </div>

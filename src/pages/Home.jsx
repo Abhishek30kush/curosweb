@@ -58,32 +58,39 @@ const whyChooseUs = [
 
 export default function Home() {
   return (
-    <div className="overflow-hidden">
+    <div className="bg-dark overflow-hidden">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative bg-hero-gradient overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-hero-gradient" />
+        
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl floating"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl floating-delayed"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-[15%] w-96 h-96 bg-primary/20 rounded-full aurora-blob"></div>
+          <div className="absolute bottom-1/3 right-[15%] w-80 h-80 bg-blue/15 rounded-full aurora-blob" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute top-2/3 left-[40%] w-64 h-64 bg-accent/10 rounded-full aurora-blob" style={{ animationDelay: '8s' }}></div>
         </div>
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIGZpbGw9IiMwMDY2RkYiIGZpbGwtb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-30"></div>
+        {/* Dot Pattern */}
+        <div className="absolute inset-0 dot-pattern opacity-30"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-32 text-center">
+        {/* Radial center glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-20 md:py-32 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="max-w-4xl mx-auto"
           >
             <motion.span
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-block bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 glass-pill text-primary px-5 py-2.5 rounded-full text-sm font-medium mb-8"
             >
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               Multi-Sector Digital Innovation Company
             </motion.span>
             
@@ -100,8 +107,8 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
                   className="btn-primary text-lg px-8 py-4"
                 >
                   Get Free Consultation
@@ -110,8 +117,8 @@ export default function Home() {
               </Link>
               <Link to="/portfolio">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
                   className="btn-secondary text-lg px-8 py-4"
                 >
                   View Our Work
@@ -131,16 +138,20 @@ export default function Home() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center pt-2"
+            className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center pt-2"
           >
             <div className="w-1 h-2 bg-primary rounded-full"></div>
           </motion.div>
         </motion.div>
+        
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark to-transparent" />
       </section>
 
       {/* Services Section */}
-      <section className="section bg-dark">
-        <div className="max-w-7xl mx-auto">
+      <section className="section relative">
+        <div className="absolute inset-0 mesh-gradient opacity-50" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <SectionTitle
             subtitle="Our Services"
             title="Comprehensive Digital Solutions"
@@ -161,9 +172,12 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="section-divider" />
+
       {/* Why Choose CUROS */}
-      <section className="section bg-dark-100">
-        <div className="max-w-7xl mx-auto">
+      <section className="section relative">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <SectionTitle
             subtitle="Why Choose CUROS"
             title="Excellence in Every Project"
@@ -172,8 +186,8 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {whyChooseUs.map((feature, index) => (
-              <AnimatedSection key={feature.title} delay={index * 0.1} className="card p-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+              <AnimatedSection key={feature.title} delay={index * 0.1} className="card p-6 group">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/15 to-blue/10 rounded-xl flex items-center justify-center mb-4 border border-primary/10 group-hover:shadow-glow-sm transition-all duration-500">
                   <feature.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-white mb-2">
@@ -187,9 +201,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="section-divider" />
+
       {/* The Direct-to-Client Advantage Section */}
-      <section className="section bg-dark relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,102,255,0.08),transparent_50%)]"></div>
+      <section className="section relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,58,237,0.06),transparent_50%)]"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionTitle
             subtitle="The Direct Advantage"
@@ -199,9 +216,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
             {/* Standard Agency Bloat */}
-            <AnimatedSection className="card p-8 bg-dark-200/30 border-red-500/10 hover:border-red-500/30 transition-all duration-300">
+            <AnimatedSection className="card p-8 border-red-500/10 hover:border-red-500/20 transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center border border-red-500/10">
                   <XCircle className="w-5 h-5 text-red-500" />
                 </div>
                 <h3 className="font-display font-bold text-xl text-white">Traditional Bloated Agencies</h3>
@@ -214,7 +231,7 @@ export default function Home() {
                   { title: "Double-Marked Pricing", desc: "Paying premium agency markup fees to cover administrative bloat rather than active coding hours." },
                   { title: "Opaque Timelines", desc: "Limited insight into the codebase, milestones, or real progress until it is far too late to iterate." }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 border-b border-dark-300 pb-4 last:border-0 last:pb-0">
+                  <div key={i} className="flex gap-4 border-b border-dark-300/30 pb-4 last:border-0 last:pb-0">
                     <div className="flex-shrink-0 w-2 h-2 bg-red-500 rounded-full mt-2"></div>
                     <div>
                       <h4 className="font-semibold text-gray-300 text-sm">{item.title}</h4>
@@ -226,25 +243,25 @@ export default function Home() {
             </AnimatedSection>
 
             {/* The CUROS Way */}
-            <AnimatedSection delay={0.2} className="card p-8 bg-primary/5 border-primary/20 hover:border-primary/50 transition-all duration-300 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-300"></div>
+            <AnimatedSection delay={0.2} className="card p-8 border-primary/15 hover:border-primary/30 transition-all duration-300 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/15 transition-all duration-300"></div>
               
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center glow-primary">
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-blue/15 rounded-xl flex items-center justify-center shadow-glow-sm border border-primary/15">
                   <ShieldCheck className="w-5 h-5 text-primary" />
                 </div>
                 <h3 className="font-display font-bold text-xl text-white">The CUROS Direct Partnership</h3>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-4 relative z-10">
                 {[
                   { title: "100% Bespoke Engineering", desc: "Clean-sheet codebases tailored precisely for your scale, security protocols, and operational goals." },
                   { title: "Direct Architect Interface", desc: "Speak directly with lead developers and CEO Abhishek Kushwaha. Instant updates, zero translations." },
                   { title: "Transparent Pricing Model", desc: "Every single rupee goes directly into top-tier design and engineering. Maximize your return on investment." },
                   { title: "Agile Daily Commits & Staging", desc: "Watch your project build live. Daily deployments, transparent Git commits, and complete staging environments." }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 border-b border-primary/10 pb-4 last:border-0 last:pb-0">
-                    <div className="flex-shrink-0 w-2 h-2 bg-primary rounded-full mt-2 glow-primary"></div>
+                  <div key={i} className="flex gap-4 border-b border-primary/8 pb-4 last:border-0 last:pb-0">
+                    <div className="flex-shrink-0 w-2 h-2 bg-primary rounded-full mt-2 shadow-glow-sm"></div>
                     <div>
                       <h4 className="font-semibold text-white text-sm">{item.title}</h4>
                       <p className="text-gray-400 text-xs mt-1">{item.desc}</p>
@@ -257,14 +274,17 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="section-divider" />
+
       {/* CUROS Resume Featured Section */}
-      <section className="section bg-dark-100 relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-30"></div>
+      <section className="section relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-30"></div>
+        <div className="absolute bottom-0 left-[20%] w-64 h-64 bg-blue/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection className="order-2 lg:order-1 card p-8 gradient-border shadow-2xl shadow-primary/5">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 rotate-3 hover:rotate-0 transition-transform duration-300">
+              <div className="text-center relative z-10">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-blue/15 rounded-2xl flex items-center justify-center mx-auto mb-6 rotate-3 hover:rotate-0 transition-transform duration-300 border border-primary/15 shadow-glow-sm">
                   <Zap className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="font-display font-semibold text-2xl text-white mb-3">
@@ -286,7 +306,8 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} className="order-1 lg:order-2">
-              <span className="text-primary text-sm font-medium uppercase tracking-wider mb-3 block glow-primary w-fit px-2 py-0.5 rounded-lg bg-primary/10">
+              <span className="inline-flex items-center gap-2 glass-pill text-primary text-xs font-semibold uppercase tracking-widest mb-4 px-4 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 Featured Product
               </span>
               <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6">
@@ -298,35 +319,32 @@ export default function Home() {
                 with professionally crafted templates that beat the ATS systems.
               </p>
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-gray-300">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                  <span>Modern AI-Optimized Templates</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-300">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                  <span>ATS-Friendly PDF Downloads</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-300">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                  <span>Instant Professional Formatting</span>
-                </div>
+                {['Modern AI-Optimized Templates', 'ATS-Friendly PDF Downloads', 'Instant Professional Formatting'].map((item) => (
+                  <div key={item} className="flex items-center gap-3 text-gray-300">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full shadow-glow-sm"></div>
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
+      <div className="section-divider" />
+
       {/* EdTech Coming Soon */}
-      <section className="section bg-dark relative overflow-hidden">
+      <section className="section relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/8 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-[100px]"></div>
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
-              <span className="text-primary text-sm font-medium uppercase tracking-wider mb-3 block glow-primary w-fit px-2 py-0.5 rounded-lg bg-primary/5">
+              <span className="inline-flex items-center gap-2 glass-pill text-primary text-xs font-semibold uppercase tracking-widest mb-4 px-4 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 Coming Soon
               </span>
               <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6">
@@ -338,24 +356,18 @@ export default function Home() {
                 make quality education accessible to everyone.
               </p>
               <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 text-gray-300">
-                  <CheckCircle className="w-5 h-5 text-primary" />
-                  <span className="text-sm">Interactive Learning</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-300">
-                  <CheckCircle className="w-5 h-5 text-primary" />
-                  <span className="text-sm">Expert Instructors</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-300">
-                  <CheckCircle className="w-5 h-5 text-primary" />
-                  <span className="text-sm">Certification</span>
-                </div>
+                {['Interactive Learning', 'Expert Instructors', 'Certification'].map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle className="w-5 h-5 text-primary" />
+                    <span className="text-sm">{item}</span>
+                  </div>
+                ))}
               </div>
             </AnimatedSection>
             
             <AnimatedSection delay={0.2} className="card p-8 gradient-border">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="text-center relative z-10">
+                <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/15">
                   <GraduationCap className="w-12 h-12 text-primary" />
                 </div>
                 <h3 className="font-display font-semibold text-2xl text-white mb-3">
@@ -375,9 +387,12 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="section-divider" />
+
       {/* CTA Section */}
-      <section className="section bg-dark-100">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="section relative">
+        <div className="absolute inset-0 mesh-gradient opacity-30" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <AnimatedSection>
             <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-6">
               Ready to Transform Your Business?
@@ -387,8 +402,8 @@ export default function Home() {
             </p>
             <Link to="/contact">
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
                 className="btn-primary text-lg px-10 py-4"
               >
                 Start Your Project
