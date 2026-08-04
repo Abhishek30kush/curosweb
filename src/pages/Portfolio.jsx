@@ -32,36 +32,40 @@ const projects = [
     metric: 'Launch Phase Q3'
   },
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-featured online store with advanced product management, secure payment integration, and seamless user experience.',
+    title: 'APS Voting System',
+    description: 'A secure and reliable digital voting platform designed for institutions, ensuring transparent and efficient elections with real-time counting.',
     category: 'Software',
-    tags: ['React.js', 'Stripe Payments', 'Tailwind', 'REST APIs', 'Node.js Backend'],
+    tags: ['React.js', 'Web App', 'Voting System', 'Secure'],
+    link: 'https://aps-voting.vercel.app',
     comingSoon: false,
-    metric: '35% Checkout Lift'
+    metric: 'Live Elections'
   },
   {
-    title: 'Healthcare Mobile App',
-    description: 'Mobile application for patient management, appointment scheduling, and telemedicine features for healthcare providers.',
+    title: 'CaughtOn',
+    description: 'A modern and interactive web application tailored for engaging user experiences and seamless interactions.',
     category: 'Software',
-    tags: ['React Native', 'Firebase Auth', 'Telehealth API', 'Direct Client Dev'],
+    tags: ['React.js', 'Web App', 'UI/UX'],
+    link: 'https://caughton.vercel.app',
     comingSoon: false,
-    metric: 'HIPAA Compliant Setup'
+    metric: 'High Engagement'
   },
   {
-    title: 'Corporate Brand Video',
-    description: 'Professional video production including scriptwriting, filming, editing, and post-production for a leading corporate client.',
-    category: 'Creative',
-    tags: ['Adobe Premiere', 'After Effects Pro', '4K Color Grading', 'Bespoke Audio Design'],
+    title: 'Fevysis Technology',
+    description: 'Corporate website for a technology solutions provider, highlighting their digital services, expertise, and company portfolio.',
+    category: 'Software',
+    tags: ['Corporate Web', 'React.js', 'Tailwind CSS'],
+    link: 'https://fevysis-technology.vercel.app',
     comingSoon: false,
-    metric: '2M+ Campaign Views'
+    metric: 'Brand Presence'
   },
   {
-    title: 'Digital Marketing Campaign',
-    description: 'Comprehensive digital marketing strategy resulting in 300% increase in leads and 150% ROI for a B2B client.',
+    title: 'Homco Media',
+    description: 'A sleek media and entertainment platform showcasing high-quality content, digital portfolios, and creative services.',
     category: 'Creative',
-    tags: ['Google Ads SDK', 'Advanced SEO Tactics', 'Facebook Analytics', 'Conversion Rate Optimization'],
+    tags: ['Media', 'Portfolio', 'Creative Agency'],
+    link: 'https://homco-media.vercel.app',
     comingSoon: false,
-    metric: '300% Lead Acceleration'
+    metric: 'Content Showcase'
   },
 ]
 

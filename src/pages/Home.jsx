@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Globe, Smartphone, Video, TrendingUp, GraduationCap, CheckCircle, Zap, Clock, Award, Users, ShieldCheck, XCircle, Code2, HeartHandshake } from 'lucide-react'
+import { ArrowRight, Globe, Smartphone, Video, TrendingUp, GraduationCap, CheckCircle, Zap, Clock, Award, Users, ShieldCheck, XCircle } from 'lucide-react'
 import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
 import AnimatedSection from '../components/AnimatedSection'

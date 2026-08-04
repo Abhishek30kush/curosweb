@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { List, MessageSquare, LogOut, CheckCircle, Clock, AlertCircle, RefreshCw, BarChart2, ShieldAlert } from 'lucide-react'
+import { List, MessageSquare, LogOut, Clock, BarChart2, ShieldAlert } from 'lucide-react'
 import { auth, db } from '../firebase'
 import { collection, query, onSnapshot, doc, updateDoc } from 'firebase/firestore'
 import { onAuthStateChanged, signOut } from 'firebase/auth'

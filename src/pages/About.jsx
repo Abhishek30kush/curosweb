@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Target, Eye, Lightbulb, Award, Users, Globe, TrendingUp, CheckCircle, Sparkles } from 'lucide-react'
+import { Target, Eye, Lightbulb, Users, TrendingUp, CheckCircle, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import AnimatedSection from '../components/AnimatedSection'

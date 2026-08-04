@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, MessageCircle, Send, Clock, Zap, ExternalLink } from 'lucide-react'
+import { Mail, MapPin, MessageCircle, Clock, Zap, ExternalLink } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import ContactForm from '../components/ContactForm'
 import AnimatedSection from '../components/AnimatedSection'
