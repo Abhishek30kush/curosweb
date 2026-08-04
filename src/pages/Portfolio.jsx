@@ -32,15 +32,6 @@ const projects = [
     metric: 'Launch Phase Q3'
   },
   {
-    title: 'APS Voting System',
-    description: 'A secure and reliable digital voting platform designed for institutions, ensuring transparent and efficient elections with real-time counting.',
-    category: 'Software',
-    tags: ['React.js', 'Web App', 'Voting System', 'Secure'],
-    link: 'https://aps-voting.vercel.app',
-    comingSoon: false,
-    metric: 'Live Elections'
-  },
-  {
     title: 'CaughtOn',
     description: 'A modern and interactive web application tailored for engaging user experiences and seamless interactions.',
     category: 'Software',
